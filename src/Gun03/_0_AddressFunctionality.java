@@ -3,7 +3,9 @@ package Gun03;
 import Utils.BaseDriver;
 import Utils.Tools;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
@@ -55,10 +57,15 @@ public class _0_AddressFunctionality extends BaseDriver {
          // selectByVisibleText,selectValue ile sorunsuz çalışır ve beklemeye ihtiyacı olmaz
 
          WebElement option=driver.findElement(By.cssSelector("select[id='input-zone']>option"));
-         wait.until(ExpectedConditions.stalenessOf(option));
+         wait.until(ExpectedConditions.stalenessOf(option)); // stale element durumu düzelene kadar bekle
 
          WebElement State=driver.findElement(By.id("input-zone"));
          Select StateSelect= new Select(State);
+
+//         System.out.println("StateSelect.ge = " + StateSelect.getOptions().size());
+//         for(WebElement e : StateSelect.getOptions())
+//             System.out.println("e.getText() = " + e.getText());   // inceleme için geçiş anının fotoğrafı
+
          StateSelect.selectByIndex(6);  // selectByVisibleText,selectValue implicitly wait ile çalıştı
          // selectByIndex implicitly wait  ile çalışmıyor.
          // selectByVisibleText,selectValue ile sorunsuz çalışır ve beklemeye ihtiyacı olmaz
@@ -109,4 +116,45 @@ public class _0_AddressFunctionality extends BaseDriver {
         Tools.successMessageValidation();
     }
 
+    @Test(enabled = false)
+    void addAddressAction()
+    {
+        WebElement name = driver.findElement(By.cssSelector("#input-firstname"));
+
+        Actions aksiyon = new Actions(driver);
+        aksiyon.click(name)
+                .sendKeys("Birkan")
+                .sendKeys(Keys.TAB)
+                .sendKeys("Filiz")
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys("babatasi mah.")
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys("Mugla")
+                .sendKeys(Keys.TAB)
+                .sendKeys("48300")
+                .sendKeys(Keys.TAB).build().perform();
+
+
+
+        WebElement countrySelect = driver.findElement(By.xpath("(//select[@id='input-country'])[1]"));
+
+        Select slct=new Select(countrySelect);
+        slct.selectByVisibleText("Turkey");
+        aksiyon.sendKeys(Keys.ENTER).build().perform();
+
+        WebElement regionSelect = driver.findElement(By.xpath("(//select[@id='input-zone'])[1]"));
+
+        Select slct2=new Select(regionSelect);
+        slct2.selectByVisibleText("Muğla");
+        aksiyon.sendKeys(Keys.ENTER).build().perform();
+
+        WebElement radioButton = driver.findElement(By.cssSelector("input[value='1']"));
+        radioButton.click();
+
+        WebElement confirm = driver.findElement(By.cssSelector("input[value='Continue']"));
+        confirm.click();
+
+    }
 }
