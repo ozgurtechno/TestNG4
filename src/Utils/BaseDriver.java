@@ -19,7 +19,7 @@ public class BaseDriver {
     public static WebDriver driver;
     public static WebDriverWait wait;
 
-    @BeforeClass
+    @BeforeClass(groups = "SmokeTest")
     public void baslangicIslemleri()
     {
         System.out.println("Başlangıç işlemleri");
@@ -65,7 +65,7 @@ public class BaseDriver {
         Assert.assertEquals(driver.getTitle(),"My Account","Login başarısız");
     }
 
-    @AfterClass(enabled = true)
+    @AfterClass(enabled = true, groups = "SmokeTest")
     public void bitisIslemleri()
     {
         System.out.println("bitiş işlemleri");

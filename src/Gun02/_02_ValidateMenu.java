@@ -18,7 +18,7 @@ import java.util.List;
 
 public class _02_ValidateMenu extends BaseDriver {
 
-    @Test
+    @Test(groups = "SmokeTest")
     void menuValidation()
     {
         // webden aldığım
