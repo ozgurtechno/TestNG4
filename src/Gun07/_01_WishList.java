@@ -26,7 +26,7 @@ import java.util.List;
 public class _01_WishList extends BaseDriverParameter {
 
     @Test
-    @Parameters("searcText")
+    @Parameters("searchText")
     void TeaddToWishListst(String arananKelime) {
         WebElement searchInput = driver.findElement(By.name("search"));
         searchInput.sendKeys(arananKelime);
