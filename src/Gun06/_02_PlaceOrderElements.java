@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.PageFactoryFinder;
 
+import java.util.List;
+
 public class _02_PlaceOrderElements {
 
     // Bu sayfadaki bütün elemenalrın driverlar bağlantısı gerekiyor

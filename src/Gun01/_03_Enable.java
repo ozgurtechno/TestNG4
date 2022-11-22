@@ -45,7 +45,7 @@ public class _03_Enable {
         logger.setLevel(Level.SEVERE); // Sadece errorları göster
 
         System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");  // ChromeServici sessiz modda çalıştır
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
         driver = new ChromeDriver();   // web sayfasını kontrol eden görevli
         //driver.manage().window().setPosition(new Point(-1650,130));
 

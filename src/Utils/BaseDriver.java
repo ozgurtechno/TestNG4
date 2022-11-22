@@ -19,7 +19,7 @@ public class BaseDriver {
     public static WebDriver driver;
     public static WebDriverWait wait;
 
-    @BeforeClass(groups = "SmokeTest")
+    @BeforeClass(groups = { "SmokeTest"})
     public void baslangicIslemleri()
     {
         System.out.println("Başlangıç işlemleri");
@@ -28,7 +28,7 @@ public class BaseDriver {
         logger.setLevel(Level.SEVERE); // Sadece errorları göster
 
         System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");  // ChromeServici sessiz modda çalıştır
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
         driver = new ChromeDriver();   // web sayfasını kontrol eden görevli
         //driver.manage().window().setPosition(new Point(-1650,130));
 
@@ -40,7 +40,7 @@ public class BaseDriver {
         //bu eklenmezse Selenium sayfa yüklenene kadar (sonsuza) bekler.: 30 sn süresince sayfanın yüklenmesini bekle yüklenmezse hata ver
         // eğer 2 sn yüklerse 30 sn. beklemez.
 
-        driver.manage().timeouts().implicitlyWait(dr); // Bütün weblementlerin element bazında, elemente özel işlem yapılmadan önce
+        //driver.manage().timeouts().implicitlyWait(dr); // Bütün weblementlerin element bazında, elemente özel işlem yapılmadan önce
         // hazır hale gelmesi verilen mühlet yani süre. // eğer 2 sn yüklerse 30 sn. beklemez.
 
         wait=new WebDriverWait(driver, Duration.ofSeconds(10));

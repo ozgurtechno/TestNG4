@@ -31,13 +31,13 @@ public class BaseDriverParameter {
 
         if (browser.equalsIgnoreCase("chrome")) {
             System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");  // ChromeServici sessiz modda çalıştır
-            System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
             driver = new ChromeDriver();
 
         } else
             if (browser.equalsIgnoreCase("firefox")) {
             System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
-            System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
             System.out.println("firefox started");
             driver = new FirefoxDriver();
         }

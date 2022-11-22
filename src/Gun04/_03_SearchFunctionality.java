@@ -12,6 +12,7 @@ import Utils.BaseDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -21,11 +22,11 @@ public class _03_SearchFunctionality extends BaseDriver {
 
     @Parameters("aranacakKelime")
     @Test
-    void SearchFunction(String aranacakKelime){
+    void SearchFunction(@Optional String aranacakKelime){
 
         WebElement searchInput = driver.findElement(By.name("search"));
-        searchInput.sendKeys(aranacakKelime);
 
+        searchInput.sendKeys(aranacakKelime);
         WebElement searchButton =
                 driver.findElement(By.cssSelector("button[class='btn btn-default btn-lg']"));
         searchButton.click();

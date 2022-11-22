@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suit">  <!--Tüm testleri kapsayan bölüm-->
+<suite name="Suit" >  <!--Tüm testleri kapsayan bölüm-->
     <test name="test1">
 
         <!-- hangi gruplar çalıştırılacak-->
@@ -11,9 +11,10 @@
 
         <!--çalışcak classların yazıldığı bölüm-->
         <classes>
-            <class name="Gun04._01_Groups">
+            <class name="Gun04._01_Groups" >
                 <methods> <!--hariç olcak metdolar-->
-                    <exclude name="Test4"></exclude>
+                    <include name="bcd"></include>
+                    <include name="abc"></include>
                 </methods>
             </class>
         </classes>
